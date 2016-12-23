@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/garyburd/redigo/redis"
+	"go/github.com/garyburd/redigo/redis"
 )
 
 var (
