@@ -41,6 +41,10 @@ func testLog2() {
 	logger3.Log(l4g.INFO, "testLog2", "INFO..1")
 	logger3.Log(l4g.ERROR, "testLog2", "error..1")
 
+	//	time.Sleep(time.Second * 10)
+
+	logger3.Log(l4g.ERROR, "testLog2", "error..111111111")
+
 	//	defer logger3.Close() //注:如果不是一直运行的程序,请加上这句话,否则主线程结束后,也不会输出和log到日志文件
 
 	go testLog2Sub1(&logger3)
@@ -52,13 +56,12 @@ func testLog2() {
 	//	l4g.ERROR("the time is now :%s -- %s", "213", "sad")
 	defer l4g.Close() //注:如果不是一直运行的程序,请加上这句话,否则主线程结束后,也不会输出和log到日志文件
 
-	//	time.Sleep(time.Second * 1)
 	fmt.Println("testLog2 OK")
 	fmt.Println("==========================")
 }
 
 func testLog2Sub1(log *l4g.Logger) {
-	for i := 0; i < 1000; i++ {
+	for i := 0; i < 1; i++ {
 
 		log.Log(l4g.INFO, "testLog2Sub1", "INFO..===="+strconv.Itoa(i))
 	}
@@ -66,7 +69,7 @@ func testLog2Sub1(log *l4g.Logger) {
 	log.Log(l4g.ERROR, "testLog2Sub1", "error..1")
 }
 func testLog2Sub2(log *l4g.Logger) {
-	for i := 0; i < 1000; i++ {
+	for i := 0; i < 1; i++ {
 
 		log.Log(l4g.INFO, "testLog2Sub2", "INFO..*****"+strconv.Itoa(i))
 	}
